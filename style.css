@@ -33,11 +33,16 @@ figure { margin: 0; }
 .nav-group[open] summary::after { content: '⌃'; }
 .dropdown { position: absolute; top: 100%; left: -14px; min-width: 175px; background: #fff; padding: 8px; border: 1px solid var(--line); box-shadow: 0 12px 26px #182a2119; }
 .dropdown a { display: block; padding: 10px 12px; font-size: .88rem; }
-.dropdown a:hover, [aria-current="page"] { background: var(--paper); color: var(--green); }
+.dropdown a:hover, .dropdown [aria-current="page"], aside [aria-current="page"] { background: var(--paper); color: var(--green); }
 .nav-produce { white-space: nowrap; }
 .nav-produce:hover { text-decoration: underline; text-underline-offset: 4px; }
 .nav-contact { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 15px; border-radius: 24px; color: white; background: var(--green); white-space: nowrap; }
-.nav-contact:hover { background: var(--deep); }
+.nav-contact:hover, .nav-contact[aria-current="page"] { background: var(--deep); }
+.nav-group.is-current summary, .nav-produce[aria-current="page"] {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
 .nav-contact span { margin-left: .4em; }
 #menu-toggle { font: inherit; font-weight: 700; background: white; border: 1px solid var(--line); color: var(--deep); padding: 8px 13px; min-height: 44px; }
 
