@@ -335,3 +335,7 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
   }
   .phase-timeline .history-phase::before { left: 0; right: auto; }
 }
+
+.cultivation-steps { list-style: none; padding: 0; margin-bottom: 0; }
+.page-content .cultivation-steps h3 { margin: 0 0 10px; }
+.cultivation-steps .card:hover h3 { text-decoration: none; }
