@@ -206,6 +206,19 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
   }
 }
 
+.product-overview,
+.recipe-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: center;
+  gap: clamp(18px, 3vw, 30px);
+}
+
+.product-overview figure { width: min(100%, 440px); }
+.recipe-feature figure { width: min(100%, 600px); }
+.product-overview > div,
+.recipe-feature > div { max-width: 640px; }
+
 .product-overview .product-detail img {
   aspect-ratio: 1.12;
 }
@@ -251,13 +264,6 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 .care-icon.microwave { background-position: center; }
 .care-icon.air-fryer { background-position: right center; }
 
-.recipe-feature {
-  display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(18px, 3vw, 38px);
-}
-
 .recipe-feature figure img {
   aspect-ratio: 3 / 2;
   object-fit: cover;
@@ -268,9 +274,4 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
   margin-top: 6px;
   font-size: .75rem;
   color: var(--muted);
-}
-
-@media (max-width: 620px) {
-  .recipe-feature { grid-template-columns: 1fr; }
-  .recipe-feature > div { grid-row: 1; }
 }
