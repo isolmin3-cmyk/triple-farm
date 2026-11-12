@@ -342,3 +342,4 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 
 .news-feature { max-width: 520px; }
 .news-feature .card { grid-column: 1 / -1; }
+.news-feature .card > img { aspect-ratio: 16 / 9; object-fit: contain; }
