@@ -241,8 +241,8 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 
 .care-icon {
   flex: 0 0 auto;
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   background: url("assets/care-icons.webp") left center / 300% auto no-repeat;
 }
 
