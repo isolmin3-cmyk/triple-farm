@@ -229,7 +229,9 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
   .product-directions { grid-template-columns: 1fr; }
 }
 
-.cooking-guide { text-align: center; }
+.product-page { text-align: center; }
+.product-page .breadcrumb,
+.product-page aside nav { justify-content: center; }
 
 .product-directions dt {
   display: flex;
