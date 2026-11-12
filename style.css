@@ -119,7 +119,17 @@ main p { color: var(--muted); }
   content: '';
   background: linear-gradient(90deg, #112b1aeb 0%, #153422bf 39%, #142b1d40 100%);
 }
-.page-hero-contained > img { object-fit: contain; object-position: right center; }
+.page-hero-fullscreen {
+  min-height: calc(100vh - 83px);
+  min-height: calc(100svh - 83px);
+}
+.page-hero-fullscreen > img { object-position: center; }
+@media (max-width: 900px) {
+  .page-hero-fullscreen {
+    min-height: calc(100vh - 67px);
+    min-height: calc(100svh - 67px);
+  }
+}
 .hero-credit {
   position: absolute;
   inset: auto 14px 12px auto;
