@@ -44,3 +44,26 @@ document.addEventListener('keydown', event => {
 
 mobile.addEventListener('change', syncMenu);
 syncMenu();
+
+const historyPhases = document.querySelectorAll('.history-phase');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (historyPhases.length && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      if (!reducedMotion.matches) {
+        entry.target.animate(
+          [
+            { opacity: 0, transform: 'translateY(16px)' },
+            { opacity: 1, transform: 'translateY(0)' },
+          ],
+          { duration: 600, easing: 'ease-out' },
+        );
+      }
+      observer.unobserve(entry.target);
+    }
+  }, { threshold: 0.18 });
+
+  historyPhases.forEach(phase => observer.observe(phase));
+}
