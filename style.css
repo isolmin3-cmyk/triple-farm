@@ -163,8 +163,8 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 .product-care { border-top: 1px solid var(--line); margin-top: 36px; padding-top: 26px; }
 .product-care h2 { font-size: 1.5rem; }
 
-.sweet-potato-cards .card {
-  border-radius: 22px;
+.cards.sweet-potato-cards:has(.card:nth-child(4)) .card {
+  grid-column: span 6;
   overflow: hidden;
 }
 
@@ -183,8 +183,4 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
   .sweet-potato-cards .card:hover {
     transform: scale(1.025);
   }
-}
-
-@media (max-width: 620px) {
-  .sweet-potato-cards .card { border-radius: 15px; }
 }
