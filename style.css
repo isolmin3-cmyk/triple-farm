@@ -340,6 +340,6 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 .page-content .cultivation-steps h3 { margin: 0 0 10px; }
 .cultivation-steps .card:hover h3 { text-decoration: none; }
 
-.news-feature { max-width: 520px; }
+.news-feature { max-width: 640px; margin-inline: auto; }
 .news-feature .card { grid-column: 1 / -1; }
 .news-feature .card > img { aspect-ratio: 16 / 9; object-fit: contain; }
