@@ -163,6 +163,11 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 .product-care { border-top: 1px solid var(--line); margin-top: 36px; padding-top: 26px; }
 .product-care h2 { font-size: 1.5rem; }
 
+.sweet-potato-cards {
+  max-width: 960px;
+  margin-inline: auto;
+}
+
 .cards.sweet-potato-cards:has(.card:nth-child(4)) .card {
   grid-column: span 6;
   overflow: hidden;
