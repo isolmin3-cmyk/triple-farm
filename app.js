@@ -67,17 +67,29 @@ if ('IntersectionObserver' in window && 'animate' in Element.prototype) {
 
       const group = target.closest('.cards, .product-directions, .phase-timeline');
       const delay = group ? groupDelays.get(group) ?? 0 : 0;
-      if (group) groupDelays.set(group, Math.min(delay + 65, 195));
+      if (group) groupDelays.set(group, Math.min(delay + 90, 270));
 
       target.animate(
         [
-          { opacity: .25, transform: 'translateY(12px)' },
+          { opacity: .08, transform: 'translateY(26px)' },
           { opacity: 1, transform: 'translateY(0)' },
         ],
-        { duration: 470, delay, easing: 'ease-out', fill: 'backwards' },
+        { duration: 650, delay, easing: 'ease-out', fill: 'backwards' },
       );
     }
   }, { threshold: 0.08 });
 
-  revealTargets.forEach(target => observer.observe(target));
+  const offscreenTargets = Array.from(revealTargets).filter(target => {
+    const { top, bottom } = target.getBoundingClientRect();
+    return top >= window.innerHeight || bottom <= 0;
+  });
+  const initialScrollY = window.scrollY;
+
+  function startRevealing() {
+    if (window.scrollY === initialScrollY) return;
+    window.removeEventListener('scroll', startRevealing);
+    offscreenTargets.forEach(target => observer.observe(target));
+  }
+
+  window.addEventListener('scroll', startRevealing, { passive: true });
 }
