@@ -232,17 +232,22 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 
 .product-directions > div {
   background: var(--paper);
-  padding: 16px;
+  padding: clamp(20px, 2.2vw, 28px);
 }
 
 .product-directions dt { font-weight: 700; }
-.product-directions dd { margin: 6px 0 0; line-height: 1.65; color: var(--muted); }
+.product-directions dd { margin: 12px auto 0; max-width: 24ch; line-height: 1.65; color: var(--muted); }
 
 @media (max-width: 620px) {
   .product-directions { grid-template-columns: 1fr; }
 }
 
 .product-page { text-align: center; }
+.product-overview p,
+.product-care p,
+.product-directions dd { text-wrap: balance; }
+.product-overview .button { margin-top: 10px; }
+.cooking-guide .product-directions { margin-block: 30px 24px; }
 .product-page .product-care {
   margin-top: clamp(48px, 5.5vw, 72px);
   padding-top: clamp(32px, 4vw, 44px);
