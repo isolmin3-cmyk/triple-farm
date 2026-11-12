@@ -119,7 +119,6 @@ main p { color: var(--muted); }
   content: '';
   background: linear-gradient(90deg, #112b1aeb 0%, #153422bf 39%, #142b1d40 100%);
 }
-.page-hero-news > img { object-position: center 24%; }
 .hero-credit {
   position: absolute;
   inset: auto 14px 12px auto;
