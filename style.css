@@ -102,7 +102,35 @@ main p { color: var(--muted); }
 .band-inner h2 { margin-bottom: 0; }
 .below { margin-top: 24px; }
 
-.page-hero { padding-block: clamp(44px, 7vw, 85px); color: white; background: linear-gradient(90deg, #163522fa, #163522b8), url("assets/cabbage.webp") center / cover; }
+.page-hero {
+  position: relative;
+  isolation: isolate;
+  min-height: clamp(190px, 22vw, 320px);
+  display: grid;
+  align-items: center;
+  padding-block: clamp(44px, 7vw, 85px);
+  color: white;
+  background: var(--deep);
+}
+.page-hero > img,
+.page-hero::after { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.page-hero > img { object-fit: cover; object-position: center 54%; }
+.page-hero::after {
+  content: '';
+  background: linear-gradient(90deg, #112b1aeb 0%, #153422bf 39%, #142b1d40 100%);
+}
+.page-hero-contained > img { object-fit: contain; object-position: right center; }
+.hero-credit {
+  position: absolute;
+  inset: auto 14px 12px auto;
+  padding: 3px 7px;
+  color: white;
+  background: #17291fd9;
+  font-size: .7rem;
+}
+@media (max-width: 620px) {
+  .page-hero::after { background: linear-gradient(90deg, #112b1aec, #16342286); }
+}
 .page-hero .eyebrow { color: #d5e5bc; }
 .page-hero h1 { font-size: clamp(2.55rem, 6vw, 5rem); margin: 0; }
 .breadcrumb { display: flex; gap: 11px; padding-block: 17px; color: var(--muted); font-size: .86rem; border-bottom: 1px solid var(--line); }
