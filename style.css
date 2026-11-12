@@ -243,6 +243,10 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 }
 
 .product-page { text-align: center; }
+.product-page .product-care {
+  margin-top: clamp(48px, 5.5vw, 72px);
+  padding-top: clamp(32px, 4vw, 44px);
+}
 .product-page .breadcrumb,
 .product-page aside nav { justify-content: center; }
 
