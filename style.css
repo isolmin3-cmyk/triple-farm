@@ -286,7 +286,8 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 }
 
 .example-note { color: var(--muted); font-size: .88rem; }
-.ceo-intro figcaption { padding: 10px 16px; font-size: .8rem; color: var(--muted); }
+.ceo-intro figcaption,
+.cultivation-photo figcaption { padding: 10px 16px; font-size: .8rem; color: var(--muted); }
 .location-map {
   display: block;
   width: 100%;
