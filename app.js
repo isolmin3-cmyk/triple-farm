@@ -45,25 +45,39 @@ document.addEventListener('keydown', event => {
 mobile.addEventListener('change', syncMenu);
 syncMenu();
 
-const historyPhases = document.querySelectorAll('.history-phase');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-if (historyPhases.length && 'IntersectionObserver' in window) {
-  const observer = new IntersectionObserver(entries => {
-    for (const entry of entries) {
-      if (!entry.isIntersecting) continue;
-      if (!reducedMotion.matches) {
-        entry.target.animate(
-          [
-            { opacity: 0, transform: 'translateY(16px)' },
-            { opacity: 1, transform: 'translateY(0)' },
-          ],
-          { duration: 600, easing: 'ease-out' },
-        );
-      }
-      observer.unobserve(entry.target);
-    }
-  }, { threshold: 0.18 });
+if ('IntersectionObserver' in window && 'animate' in Element.prototype) {
+  const revealTargets = document.querySelectorAll([
+    'main h1',
+    'main h2:not(.history-phase h2, .card h2)',
+    '.hero-inner > p, .hero-inner .actions',
+    '.page-content > p, .page-content > address, .page-content > .split > div',
+    '.frame, .location-map',
+    '.cards > .card, .product-directions > div, .history-phase',
+  ].join(', '));
 
-  historyPhases.forEach(phase => observer.observe(phase));
+  const observer = new IntersectionObserver(entries => {
+    const groupDelays = new Map();
+
+    for (const { isIntersecting, target } of entries) {
+      if (!isIntersecting) continue;
+      observer.unobserve(target);
+      if (reducedMotion.matches) continue;
+
+      const group = target.closest('.cards, .product-directions, .phase-timeline');
+      const delay = group ? groupDelays.get(group) ?? 0 : 0;
+      if (group) groupDelays.set(group, Math.min(delay + 65, 195));
+
+      target.animate(
+        [
+          { opacity: .25, transform: 'translateY(12px)' },
+          { opacity: 1, transform: 'translateY(0)' },
+        ],
+        { duration: 470, delay, easing: 'ease-out', fill: 'backwards' },
+      );
+    }
+  }, { threshold: 0.08 });
+
+  revealTargets.forEach(target => observer.observe(target));
 }
