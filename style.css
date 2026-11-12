@@ -190,7 +190,7 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 .sweet-potato-cards .card h3 { margin-bottom: 8px; }
 
 @media (hover: hover) and (pointer: fine) {
-  .sweet-potato-cards .card:hover {
+  .hover-cards .card:hover {
     position: relative;
     z-index: 1;
     box-shadow: 0 14px 32px #20352626;
@@ -198,10 +198,10 @@ footer { background: #f5f6f1; border-top: 1px solid var(--line); }
 }
 
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .sweet-potato-cards .card {
+  .hover-cards .card {
     transition: transform .25s ease, box-shadow .25s ease;
   }
-  .sweet-potato-cards .card:hover {
+  .hover-cards .card:hover {
     transform: scale(1.025);
   }
 }
